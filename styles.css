@@ -1,0 +1,212 @@
+:root {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --accent-color: #7bb5e3; /* A nice sky blue accent */
+    --card-bg: #1e1e1e;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    /* Aesthetic Lofi Night Sky Background from Unsplash */
+    background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    /* The Glassmorphism Magic */
+    background: rgba(20, 20, 20, 0.5); /* Semi-transparent dark background */
+    backdrop-filter: blur(12px); /* The frosted glass blur */
+    -webkit-backdrop-filter: blur(12px); /* For Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Subtle glowing edge */
+    
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    text-align: center;
+    width: 90%;
+    max-width: 420px;
+}
+
+#time-display {
+    font-size: 5rem;
+    margin: 0 0 1rem 0;
+    font-weight: 300;
+}
+
+button {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 50px; /* Pill-shaped aesthetic buttons */
+    cursor: pointer;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.214);
+    transform: translateY(-2px); /* Tiny lift effect on hover */
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 70%;
+    border-radius: 5px;
+    border: none;
+    margin-right: 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+}
+
+li {
+    background: #2a2a2a;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+/* --- Intro Sequence Styles --- */
+#intro-screen {
+    position: fixed; /* Covers the whole screen */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0d0d0d; /* Very dark, aesthetic background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100; /* Keeps it on top of everything else */
+    transition: opacity 2s ease-in-out;
+}
+
+#intro-text {
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    text-align: center;
+    color: #ffffff;
+}
+
+/* Initially hide the main app, and set it up to slide up slightly */
+#main-app {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 2.5s ease-in-out, transform 2.5s ease-in-out;
+}
+
+/* We will add this class via JavaScript when the intro is done */
+#main-app.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* --- Timer Mode Buttons --- */
+.timer-modes {
+    margin-bottom: 1rem;
+}
+
+.mode-btn {
+    font-size: 0.85rem;
+    padding: 6px 16px;
+    opacity: 0.6; /* Dimmed when not active */
+    box-shadow: none;
+}
+
+.mode-btn.active {
+    opacity: 1; /* Bright when active */
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+}
+/* --- Focus Analytics --- */
+.analytics-section {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Subtle divider line */
+    font-size: 0.9rem;
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+#daily-stats {
+    font-weight: 600;
+    color: var(--accent-color);
+    font-size: 1.1rem;
+}
+/* --- Chart Container --- */
+.chart-container {
+    margin-top: 15px;
+    width: 100%;
+    height: 150px; /* Keeps the chart compact and neat */
+    position: relative;
+}
+/* --- Custom Time Input --- */
+.custom-time {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#custom-minutes {
+    width: 110px;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    padding: 8px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+}
+
+#custom-minutes::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+#set-custom-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    margin: 0;
+}
+/* --- Zen Mode Button --- */
+.zen-btn-container {
+    display: flex;
+    justify-content: flex-end; /* Pushes the button to the top right */
+    margin-bottom: 10px;
+}
+
+#zen-mode-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.5); /* Dimmed text */
+    cursor: pointer;
+    font-size: 0.85rem;
+    padding: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+#zen-mode-btn:hover {
+    color: #ffffff; /* Brightens when you hover over it */
+    background: transparent;
+    transform: none;
+}

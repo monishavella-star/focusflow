@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusFlow | Ambient Study Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="intro-screen">
+        <h2 id="intro-text"></h2>
+    </div>
+
+        <main class="container" id="main-app">
+        
+        <div class="zen-btn-container">
+            <button id="zen-mode-btn">⛶ Zen Mode</button>
+        </div>
+
+        <section class="timer-section">
+            <div class="timer-modes">
+                <button class="mode-btn active" data-time="25">Focus</button>
+                <button class="mode-btn" data-time="5">Short Break</button>
+                <button class="mode-btn" data-time="15">Long Break</button>
+            </div>
+            
+        <div class="custom-time">
+            <input type="number" id="custom-minutes" placeholder="Custom mins" min="1" max="180">
+            <button id="set-custom-btn">Set</button>
+        </div>
+            
+            <h1 id="time-display">25:00</h1>
+            <div class="controls">
+                <button id="start-btn">Start</button>
+                <button id="pause-btn">Pause</button>
+                <button id="reset-btn">Reset</button>
+            </div>
+        </section>
+
+        <section class="audio-section">
+            <h2>Ambient Sounds</h2>
+            <div class="sound-controls">
+                <button class="sound-btn" data-sound="rain">🌧️ Rain</button>
+                <button class="sound-btn" data-sound="brown">🌊 Deep Focus</button>
+                <button class="sound-btn" data-sound="lofi">🎧 Lo-Fi</button>
+            </div>
+            <audio id="rain-audio" src="sounds/rain.mp3" loop></audio>
+            <audio id="brown-audio" src="sounds/brown.mp3" loop></audio>
+            <audio id="lofi-audio" src="sounds/lofi.mp3" loop></audio>
+        </section>
+
+        <section class="task-section">
+            <h2>Focus Tasks</h2>
+            <div class="task-input">
+                <input type="text" id="new-task" placeholder="What needs to be done?">
+                <button id="add-task-btn">Add</button>
+            </div>
+            <ul id="task-list"></ul>
+        </section>
+
+            <div class="analytics-section">
+            <p>🔥 Today's Focus: <span id="daily-stats">0</span> minutes</p>
+            
+            <div class="chart-container">
+                <canvas id="focusChart"></canvas>
+            </div>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
