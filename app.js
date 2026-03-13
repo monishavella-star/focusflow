@@ -128,10 +128,16 @@ let currentAudio = null;
 const defaultBg = "url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1920')";
 
 // A dictionary mapping your audio buttons to your custom HD backgrounds
+// A dictionary mapping your audio buttons to your custom HD backgrounds
 const backgrounds = {
+    // NEW RAIN IMAGE SWAPPED IN
     'rain': "url('https://images.unsplash.com/photo-1532690505755-416f854618da?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", 
-    'brown': "url('https://images.unsplash.com/photo-1535905748047-14b2415c77d5?q=80&w=1150&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", 
-    'lofi': "url('https://images.unsplash.com/photo-1721456289938-cff65ad81034?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"  
+    
+    // DEEP FOCUS
+    'brown': "url('https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", 
+    
+    // LO-FI
+    'lofi': "url('https://images.unsplash.com/photo-1535905557558-afc4877a26fc?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"  
 };
 
 // Set the default background when the app loads
