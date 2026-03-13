@@ -129,7 +129,7 @@ const defaultBg = "url('https://images.unsplash.com/photo-1519681393784-d1202679
 
 // A dictionary mapping your audio buttons to your custom HD backgrounds
 const backgrounds = {
-    'rain': "url('https://images.unsplash.com/photo-1501297875943-27f3803b4956?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", 
+    'rain': "url('https://images.unsplash.com/photo-1532690505755-416f854618da?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", 
     'brown': "url('https://images.unsplash.com/photo-1535905748047-14b2415c77d5?q=80&w=1150&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", 
     'lofi': "url('https://images.unsplash.com/photo-1721456289938-cff65ad81034?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"  
 };
