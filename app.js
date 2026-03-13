@@ -131,7 +131,7 @@ const defaultBg = "url('https://images.unsplash.com/photo-1519681393784-d1202679
 // A dictionary mapping your audio buttons to your custom HD backgrounds
 const backgrounds = {
     // NEW RAIN IMAGE SWAPPED IN
-    'rain': "url('https://images.unsplash.com/photo-1532690505755-416f854618da?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", 
+    'rain': "url('https://unsplash.com/photos/dew-drops-on-glass-panel-bWtd1ZyEy6w')", 
     
     // DEEP FOCUS
     'brown': "url('https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", 
