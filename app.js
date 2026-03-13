@@ -120,33 +120,57 @@ document.getElementById('set-custom-btn').addEventListener('click', () => {
 });
 });
 
-// --- 2. AMBIENT AUDIO LOGIC ---
+// --- 2. AMBIENT AUDIO LOGIC & DYNAMIC BACKGROUNDS ---
 const soundBtns = document.querySelectorAll('.sound-btn');
 let currentAudio = null;
 
+// The default background (your original starry mountain)
+const defaultBg = "url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1920')";
+
+// A dictionary mapping your audio buttons to specific HD backgrounds
+const backgrounds = {
+    'rain': "url('https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?q=80&w=1920')", // Rainy window
+    'brown': "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920')", // Deep space focus
+    'lofi': "url('https://images.unsplash.com/photo-1497091071254-da9c22eb1922?q=80&w=1920')"  // Cozy lofi study room
+};
+
+// Set the default background when the app loads
+document.body.style.backgroundImage = defaultBg;
+document.body.style.transition = "background-image 0.8s ease-in-out"; // Smooth fade effect
+
 soundBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-        const soundType = btn.getAttribute('data-sound');
-        const audioEl = document.getElementById(`${soundType}-audio`);
+        // Added .toLowerCase() to fix potential capitalization issues
+        const soundType = btn.getAttribute('data-sound').toLowerCase(); 
+        const audioToPlay = document.getElementById(`${soundType}-audio`);
 
-        // If clicking the same sound that's playing, pause it
-        if (currentAudio === audioEl && !audioEl.paused) {
-            audioEl.pause();
-            btn.style.opacity = '1';
+        // Diagnostic logs to see what's happening
+        console.log("1. Button Clicked:", soundType);
+        console.log("2. Image URL found:", backgrounds[soundType]);
+
+        // If clicking the currently playing sound, pause it and reset background
+        if (currentAudio === audioToPlay && !currentAudio.paused) {
+            currentAudio.pause();
+            btn.classList.remove('active');
+            document.body.style.backgroundImage = defaultBg; 
             return;
         }
 
-        // Pause any currently playing audio
+        // Pause any currently playing sound before starting a new one
         if (currentAudio) {
             currentAudio.pause();
-            // Reset all button opacities
-            soundBtns.forEach(b => b.style.opacity = '1'); 
+            soundBtns.forEach(b => b.classList.remove('active'));
         }
 
-        // Play the new audio
-        audioEl.play();
-        currentAudio = audioEl;
-        btn.style.opacity = '0.6'; // Highlight active button
+        // Play the selected sound and change the background
+        if (audioToPlay) {
+            audioToPlay.play().catch(err => console.log("Audio blocked by browser:", err));
+            currentAudio = audioToPlay;
+            btn.classList.add('active');
+            
+            // This changes the background
+            document.body.style.backgroundImage = backgrounds[soundType];
+        }
     });
 });
 
