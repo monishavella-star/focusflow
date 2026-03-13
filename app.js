@@ -127,16 +127,10 @@ let currentAudio = null;
 // The default background (your original starry mountain)
 const defaultBg = "url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1920')";
 
-// A dictionary mapping your audio buttons to specific HD backgrounds
-// A dictionary mapping your audio buttons to specific HD backgrounds
+// A dictionary mapping your audio buttons to your custom HD backgrounds
 const backgrounds = {
-    // RAIN
     'rain': "url('https://images.unsplash.com/photo-1721456289938-cff65ad81034?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", 
-    
-    // DEEP FOCUS (Brown Noise)
     'brown': "url('https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", 
-    
-    // LO-FI
     'lofi': "url('https://images.unsplash.com/photo-1535905557558-afc4877a26fc?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"  
 };
 
@@ -146,19 +140,14 @@ document.body.style.transition = "background-image 0.8s ease-in-out"; // Smooth 
 
 soundBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-        // Added .toLowerCase() to fix potential capitalization issues
         const soundType = btn.getAttribute('data-sound').toLowerCase(); 
         const audioToPlay = document.getElementById(`${soundType}-audio`);
-
-        // Diagnostic logs to see what's happening
-        console.log("1. Button Clicked:", soundType);
-        console.log("2. Image URL found:", backgrounds[soundType]);
 
         // If clicking the currently playing sound, pause it and reset background
         if (currentAudio === audioToPlay && !currentAudio.paused) {
             currentAudio.pause();
             btn.classList.remove('active');
-            document.body.style.backgroundImage = defaultBg; 
+            document.body.style.backgroundImage = defaultBg; // Go back to default
             return;
         }
 
@@ -168,13 +157,13 @@ soundBtns.forEach(btn => {
             soundBtns.forEach(b => b.classList.remove('active'));
         }
 
-        // Play the selected sound and change the background
+        // Play the selected sound, highlight the button, AND change the background
         if (audioToPlay) {
             audioToPlay.play().catch(err => console.log("Audio blocked by browser:", err));
             currentAudio = audioToPlay;
             btn.classList.add('active');
             
-            // This changes the background
+            // This line changes the background dynamically:
             document.body.style.backgroundImage = backgrounds[soundType];
         }
     });
