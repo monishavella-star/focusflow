@@ -128,10 +128,16 @@ let currentAudio = null;
 const defaultBg = "url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1920')";
 
 // A dictionary mapping your audio buttons to specific HD backgrounds
+// A dictionary mapping your audio buttons to specific HD backgrounds
 const backgrounds = {
-    'rain': "url('https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?q=80&w=1920')", // Rainy window
-    'brown': "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920')", // Deep space focus
-    'lofi': "url('https://images.unsplash.com/photo-1497091071254-da9c22eb1922?q=80&w=1920')"  // Cozy lofi study room
+    // RAIN
+    'rain': "url('https://images.unsplash.com/photo-1721456289938-cff65ad81034?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", 
+    
+    // DEEP FOCUS (Brown Noise)
+    'brown': "url('https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", 
+    
+    // LO-FI
+    'lofi': "url('https://images.unsplash.com/photo-1535905557558-afc4877a26fc?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"  
 };
 
 // Set the default background when the app loads
