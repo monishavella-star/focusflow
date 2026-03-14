@@ -54,6 +54,17 @@ function updateDisplay() {
     const seconds = timeLeft % 60;
     timeDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
+setCustomTimeButton.addEventListener('click', () => {
+    let customMins = parseInt(customInput.value);
+    
+    // 1. Update the background timer
+    timeLeft = customMins * 60; 
+    
+    // 2. THIS IS THE NEW FIX: Update the visual display instantly!
+    // We add a '0' in front if it's less than 10 so it looks like "05:00" instead of "5:00"
+    let displayMins = customMins < 10 ? '0' + customMins : customMins;
+    document.getElementById('timer-display').textContent = `${displayMins}:00`; 
+});
 
 // Handle Mode Switching (Focus, Short Break, Long Break)
 modeBtns.forEach(btn => {
