@@ -82,6 +82,9 @@ document.getElementById('start-btn').addEventListener('click', () => {
             if (timeLeft === 0) {
                 clearInterval(timerId);
                 alert("Time's up! Great job.");
+                // Add this where your timer reaches 00:00
+const alarmSound = document.getElementById('alarm-audio');
+alarmSound.play().catch(err => console.log("Alarm blocked:", err));
             }
         }, 1000);
     }
@@ -289,4 +292,27 @@ zenModeBtn.addEventListener('click', () => {
         document.exitFullscreen();
         zenModeBtn.textContent = '⛶ Zen Mode';
     }
+});
+// --- DYNAMIC QUOTE LOGIC ---
+const quotes = [
+    "The secret of getting ahead is getting started.",
+    "First, solve the problem. Then, write the code.",
+    "Focus on being productive instead of busy.",
+    "It always seems impossible until it's done.",
+    "Small disciplines repeated with consistency lead to great achievements."
+];
+
+const quoteElement = document.getElementById('daily-quote');
+// Pick a random quote from the list
+const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+quoteElement.textContent = randomQuote;
+// --- REFLECTION NOTEPAD LOGIC (Auto-Save) ---
+const notesArea = document.getElementById('work-notes');
+
+// 1. When the page loads, check if they have saved notes and display them
+notesArea.value = localStorage.getItem('focusReflections') || '';
+
+// 2. Every single time they type a letter, save it automatically!
+notesArea.addEventListener('input', () => {
+    localStorage.setItem('focusReflections', notesArea.value);
 });

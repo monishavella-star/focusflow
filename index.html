@@ -36,6 +36,9 @@
                 <button id="pause-btn">Pause</button>
                 <button id="reset-btn">Reset</button>
             </div>
+            <div class="quote-container" style="text-align: center; margin: 15px 0; font-style: italic; opacity: 0.8;">
+    <p id="daily-quote">"Loading motivation..."</p>
+</div>
         </section>
 
         <section class="audio-section">
@@ -48,6 +51,7 @@
             <audio id="rain-audio" src="sounds/rain.mp3" loop></audio>
             <audio id="brown-audio" src="sounds/brown.mp3" loop></audio>
             <audio id="lofi-audio" src="sounds/lofi.mp3" loop></audio>
+            <audio id="alarm-audio" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg"></audio>
         </section>
 
         <section class="task-section">
@@ -61,6 +65,11 @@
 
             <div class="analytics-section">
             <p>🔥 Today's Focus: <span id="daily-stats">0</span> minutes</p>
+            <div class="notepad-container" style="margin-top: 20px;">
+    <h3 style="font-size: 1rem; margin-bottom: 5px;">Overall Works & Reflections</h3>
+    <textarea id="work-notes" placeholder="Jot down what you accomplished today..." 
+    style="width: 100%; height: 100px; background: rgba(255, 255, 255, 0.1); color: white; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 10px; resize: vertical;"></textarea>
+</div>
             
             <div class="chart-container">
                 <canvas id="focusChart"></canvas>
